@@ -1,0 +1,19 @@
+[Unit]
+Description=PrimeSquare service
+After=syslog.target network.target
+[Service]
+SuccessExitStatus=143
+TimeoutStopSec=120
+Restart=on-failure
+RestartSec=120
+User=ubuntu
+
+WorkingDirectory=/home/ubuntu/workspace/Spring-boot
+
+Type=simple
+
+ExecStart=/home/ubuntu/workspace/Spring-boot/wrapper.sh
+ExecStop=/bin/kill -15 $MAINPID
+
+[Install]
+WantedBy=multi-user.target
