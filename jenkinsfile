@@ -27,8 +27,7 @@ pipeline {
        stage ('service check') {
           steps {
             sh 'chmod +x ./wrapper.sh'
-            sh 'systemctl start Harish.service'
-          }
+           }
 
        }
 
