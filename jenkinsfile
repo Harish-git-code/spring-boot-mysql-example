@@ -24,6 +24,14 @@ pipeline {
                 sh 'mvn install -DskipTests'
             }
         }
+       stage ('service check') {
+          steps {
+            sh 'cp /service/Harish.service /etc/systemd/system/'
+            sh 'chmod +x ./service/Harish.service'
+            sh 'systemctl start Harish.service'
+          }
+
+       }
 
        stage('Deploy') {
             steps {
