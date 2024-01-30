@@ -6,13 +6,13 @@ pipeline {
         }
     }
 
-    stage(' Clearn Workspace') {
+    stages {
+    stage('Clean Workspace') {
             steps {
                 cleanWs()
             }
         }
-    stages {
-        stage('Checkout') {
+    stage('Checkout') {
             steps {
                 // Clone the Git repository
                 checkout scm
