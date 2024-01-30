@@ -1,35 +1,58 @@
 pipeline {
-    agent any
+    agent {
+        // Specify the label or name of the node where you want to run the pipeline
+        node {
+            label 'your-node-label'
+        }
+    }
 
     stages {
         stage('Checkout') {
             steps {
+                // Clone the Git repository
                 checkout scm
             }
         }
 
-        stage('Build') {
+        stage('Build and Test') {
             steps {
-                script {
-                    sh 'mvn clean install'
+                // Navigate to the root folder of the project
+                dir('/root/spring-boot-mysql-example') {
+                    // Build and run tests using Maven
+                    sh 'mvn clean test'
                 }
             }
         }
 
-        stage('Test') {
+        stage('Package') {
             steps {
-                script {
-                    sh 'mvn test'
+                // Navigate to the root folder of the project
+                dir('/root/spring-boot-mysql-example') {
+                    // Package the application using Maven
+                    sh 'mvn clean install'
                 }
             }
         }
 
         stage('Deploy') {
             steps {
-                script {
-                    // Add deployment steps (e.g., copy JAR to server)
+                // Navigate to the root folder of the project
+                dir('/root/spring-boot-mysql-example') {
+                    // Add deployment steps (e.g., run the JAR)
+                    sh 'java -jar target/your-application.jar'
                 }
             }
+        }
+    }
+
+    post {
+        success {
+            // Additional steps to perform when the pipeline is successful
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            // Additional steps to perform when the pipeline fails
+            echo 'Pipeline failed!'
         }
     }
 }
