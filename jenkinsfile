@@ -16,31 +16,15 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                // Navigate to the root folder of the project
-                dir('/root/spring-boot-mysql-example') {
-                    // Build and run tests using Maven
-                    sh 'mvn clean test'
-                }
+                sh 'cd /root/spring-boot-mysql-example'
+                sh 'mvn clean test'
+                sh 'mvn install'
             }
         }
 
-        stage('Package') {
+       stage('Deploy') {
             steps {
-                // Navigate to the root folder of the project
-                dir('/root/spring-boot-mysql-example') {
-                    // Package the application using Maven
-                    sh 'mvn clean install'
-                }
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                // Navigate to the root folder of the project
-                dir('/root/spring-boot-mysql-example') {
-                    // Add deployment steps (e.g., run the JAR)
-                    sh 'java -jar target/your-application.jar'
-                }
+                   sh 'java -jar target/your-application.jar'
             }
         }
     }
