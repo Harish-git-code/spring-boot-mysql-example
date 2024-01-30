@@ -6,6 +6,11 @@ pipeline {
         }
     }
 
+    stage(' Clearn Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
     stages {
         stage('Checkout') {
             steps {
@@ -16,7 +21,7 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                sh 'mvn install -dskipTests'
+                sh 'mvn install -DskipTests'
             }
         }
 
