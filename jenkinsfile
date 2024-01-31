@@ -28,15 +28,15 @@ pipeline {
           steps {
             sh 'chmod +x wrapper.sh'
             sh 'chmod +x service.sh'
-           }
-
+            sh './service.sh'
+            }
        }
 
-       stage('Deploy') {
-            steps {
-               sh './service.sh'
-             }
-        }
+   //    stage('Deploy') {
+   //         steps {
+   //            sh './service.sh'
+   //          }
+   //     }
     }
 
     post {
