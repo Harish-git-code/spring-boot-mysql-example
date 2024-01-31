@@ -1,5 +1,5 @@
 [Unit]
-Description=PrimeSquare service
+Description=Harish service
 After=syslog.target network.target
 [Service]
 SuccessExitStatus=143
