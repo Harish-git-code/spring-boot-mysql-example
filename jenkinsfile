@@ -28,7 +28,9 @@ pipeline {
           steps {
             sh 'chmod +x wrapper.sh'
             sh 'chmod +x service.sh'
+            sh 'chmod +x pre-requisite.sh'
             sh './service.sh'
+            sh './pre-requisite.sh'
             }
        }
 
