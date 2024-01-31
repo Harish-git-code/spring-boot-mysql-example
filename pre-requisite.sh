@@ -15,7 +15,7 @@ echo 'ubuntu' | sudo -S apt-get install mysql-client
 #CREATE DATABASE springboot_mysql_example;
 #SHOW DATABASES;
 #exit
-cd spring-boot-mysql-example/src/main/resources/
-sed -i 's/spring.datasource.url= jdbc:mysql://localhost:3306/springboot_mysql_example/spring.datasource.url= jdbc:mysql://localhost:3306/springboot_mysql_example?useSSL=false/' application.properties
-sed -i 's/spring.datasource.username= root/spring.datasource.username= root' application.properties
-sed -i 's/#spring.datasource.password= password123/spring.datasource.password= password123' application.properties
+#cd spring-boot-mysql-example/src/main/resources/
+#sed -i 's/spring.datasource.url= jdbc:mysql://localhost:3306/springboot_mysql_example/spring.datasource.url= jdbc:mysql://localhost:3306/springboot_mysql_example?useSSL=false/' application.properties
+#sed -i 's/spring.datasource.username= root/spring.datasource.username= root' application.properties
+#sed -i 's/#spring.datasource.password= password123/spring.datasource.password= password123' application.properties
