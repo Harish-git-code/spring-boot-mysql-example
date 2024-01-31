@@ -33,7 +33,9 @@ pipeline {
 
        stage('Deploy') {
             steps {
-                   sh 'java -jar /home/ubuntu/workspace/Spring-boot/target/spring-boot-mysql-0.0.1-SNAPSHOT.jar'
+                   sh 'sudo cp -r ${WORKSPACE}/service/Harish.service /etc/systemd/system/'
+                   sh 'sudo systemctl enable Harish.service'
+                   sh 'sudo systemctl start Harish.service'
             }
         }
     }
