@@ -21,7 +21,7 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                sh 'mvn install -DskipTests'
+                sh 'mvn install -DskipTests -X'
             }
         }
        stage ('service check') {
