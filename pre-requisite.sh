@@ -1,15 +1,17 @@
 #!/bin/bash
 
-echo 'ubuntu' | sudo -S su
-apt install git
-apt-get install openjdk-8-jdk
-apt-get install maven
-apt-get update
-apt-get install mysql-server
-systemctl start mysql.service
-apt-get install mysql-client
+echo 'ubuntu' | sudo -S apt install git
+echo 'ubuntu' | sudo -S apt install git
+echo 'ubuntu' | sudo -S apt-get install openjdk-8-jdk
+echo 'ubuntu' | sudo -S apt-get install maven
+echo 'ubuntu' | sudo -S apt-get update
+echo 'ubuntu' | sudo -S apt-get install mysql-server
+echo 'ubuntu' | sudo -S systemctl start mysql.service
+echo 'ubuntu' | sudo -S apt-get install mysql-client
+echo 'ubuntu' | sudo -S mysql
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password123';
-exitmysql -uroot -ppassword123
+exit
+echo 'ubuntu' | sudo -S mysql -uroot -ppassword123
 CREATE DATABASE springboot_mysql_example;
 SHOW DATABASES;
 exit
