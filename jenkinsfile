@@ -33,9 +33,9 @@ pipeline {
 
        stage('Deploy') {
             steps {
-                   sh 'sudo cp -r ${WORKSPACE}/service/Harish.service /etc/systemd/system/'
-                   sh 'sudo systemctl enable Harish.service'
-                   sh 'sudo systemctl start Harish.service'
+                   sh 'cp -r ${WORKSPACE}/service/Harish.service /etc/systemd/system/'
+                   sh 'systemctl enable Harish.service'
+                   sh 'systemctl start Harish.service'
             }
         }
     }
